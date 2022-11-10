@@ -8,9 +8,9 @@ import React, { useState } from 'react';
 
 const DropdownBtn = (props) => {
     return (
-        <DropdownButton variant="lostPage" id="dropdown-basic-button dropDownbtn" title={props.title} >
+        <DropdownButton onSelect={props.eventHandle} variant="lostPage" id="dropdown-basic-button dropDownbtn" title={props.title} >
             {props.items.map(item => (
-                <Dropdown.Item href={item.action}>{item.name}</Dropdown.Item>
+                <Dropdown.Item eventKey={item}>{item}</Dropdown.Item>
             ))}
         </DropdownButton>
     )
@@ -42,10 +42,10 @@ const Cards = (props) => {
                     <ListGroup variant="flush">
                         <ListGroup.Item>Description: <b>{props.desc}</b></ListGroup.Item>
                         <ListGroup.Item>Building: <b>{props.building}</b></ListGroup.Item>
-                        <ListGroup.Item>Date Found: <b>{props.dateFound}</b></ListGroup.Item>
+                        <ListGroup.Item>{props.dateDesc}: <b>{props.dateFound}</b></ListGroup.Item>
                     </ListGroup>
                     <Button variant="success" onClick={handleShow}>
-                        Claim this item
+                        {props.buttonText}
                     </Button>
                 </Card.Body>
             </Card>
