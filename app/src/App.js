@@ -1,7 +1,7 @@
 import "./Components/layout.module.css";
 import { Routes, Route } from 'react-router-dom';
 import { ReportLostItems, SearchFoundItems, Home } from './pages';
-import Navbar from './Components/navbar';
+import { Navbar } from "./Components";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
         <Route path='/report-lost-items' element={<ReportLostItems />} />
         <Route path='/search-found-items' element={<SearchFoundItems />} />
       </Routes>
+      
     </div>
 
   );
