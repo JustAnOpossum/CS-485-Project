@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@material/textfield": "^14.0.0",
     "@mui/material": "^5.10.13",
     "@mui/styled-engine": "^5.10.8",
     "@testing-library/jest-dom": "^5.16.5",
@@ -17,6 +18,7 @@
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "textfield": "^1.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
