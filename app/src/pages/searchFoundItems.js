@@ -3,15 +3,15 @@ import "./foundItems.css";
 import { DropdownBtn, Cards } from "../Components/foundItemComponents";
 import 'bootstrap/dist/css/bootstrap.css'
 import '../Components/dropdown.css'
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import TextField from "@mui/material/TextField";
 import { FooterSearch } from "../Components";
 
 
 //Array of items for the building button
-const buildingBtnItems = ['All', 'SH', 'BH', 'CCSU', 'Pan Am']
+const orgBuildingBtnItems = ['All', 'SH', 'BH', 'CCSU', 'Pan Am']
 //Array of items for the item type button
-const itemTypeBtnItems = ['All', 'Phone', 'Wallet', 'Keys', 'Other']
+const orgItemTypeBtnItems = ['All', 'Phone', 'Wallet', 'Keys', 'Other']
 
 //Array of items that populates found items
 const foundItems = [
@@ -88,62 +88,75 @@ const claimedItems = [
 
 
 const SearchFoundItems = () => {
+  //Array of items for the building button
+  let buildingBtnObj = { items: [...orgBuildingBtnItems], filter: '' }
+  buildingBtnObj.items[0] = '✔️ ' + buildingBtnObj.items[0]
+  //Array of items for the item type button
+  let itemTypeBtnObj = { items: [...orgItemTypeBtnItems], filter: '' }
+  itemTypeBtnObj.items[0] = '✔️ ' + itemTypeBtnObj.items[0]
+
+  //State for the serach bar
+  const [searchBar, setSearchBar] = useState('')
+
+  //State for the buttons
+  const [buildingBtnState, updateBuildingBtn] = useReducer(btnReducer, buildingBtnObj)
+  const [itemBtnState, updateItemBtn] = useReducer(btnReducer, itemTypeBtnObj)
+
   //Creates the state for each of the mock lists
   const [foundItemsList, updateFoundItemsList] = useReducer(reducer, foundItems)
   const [lostItemsList, updateLostItemsList] = useReducer(reducer, lostItems)
   const [claimedItemsList, updateClaimedItemsList] = useReducer(reducer, claimedItems)
 
+
+  //Reducer method to update the buttons
+  function btnReducer(state, action) {
+    let filter = (action.item === 'All') ? '' : action.item
+    let newBtns = action.orgItems
+    let selectionIndex = newBtns.indexOf(action.item)
+    newBtns[selectionIndex] = '✔️ ' + newBtns[selectionIndex]
+    return { items: newBtns, filter: filter }
+  }
+
+  //Reducer method to update the cards
   function reducer(state, action) {
-    //Resets the state if all items are selected
-    if (action.item === 'All') {
-      return action.initItems
-    }
-    switch (action.type) {
-      //Case for building button
-      case 'building':
-        return action.initItems.filter(item => {
-          return item.building.includes(action.item)
-        })
-      //Case for item selection button
-      case 'item':
-        return action.initItems.filter(item => {
-          return item.itemType.includes(action.item)
-        })
-      //Case for search bar update
-      case 'search':
-        return action.initItems.filter(item => {
-          return item.title.toLowerCase().includes(action.item) || item.desc.toLowerCase().includes(action.item) || item.building.toLowerCase().includes(action.item)
-        })
-      default:
-    }
+    return action.initItems.filter(item => {
+      return (item.title.toLowerCase().includes(searchBar) || item.desc.toLowerCase().includes(searchBar) || item.building.toLowerCase().includes(searchBar)) && (item.itemType.includes(itemBtnState.filter) && item.building.includes(buildingBtnState.filter))
+    })
   }
 
   //Caller for the building button
   function buildingBtn(item) {
-    updateFoundItemsList({ type: 'building', item: item, initItems: foundItems })
-    updateLostItemsList({ type: 'building', item: item, initItems: lostItems })
-    updateClaimedItemsList({ type: 'building', item: item, initItems: claimedItems })
+    item = item.replace('✔️ ', '')
+    updateBuildingBtn({ item: item, orgItems: [...orgBuildingBtnItems] })
+    updateCards(item)
   }
   //Caller for the item button
   function itemBtn(item) {
-    updateFoundItemsList({ type: 'item', item: item, initItems: foundItems })
-    updateLostItemsList({ type: 'item', item: item, initItems: lostItems })
-    updateClaimedItemsList({ type: 'item', item: item, initItems: claimedItems })
+    item = item.replace('✔️ ', '')
+    updateItemBtn({ item: item, orgItems: [...orgItemTypeBtnItems] })
+    updateCards(item)
   }
   //Caller for when user types text into the text box
   function txtUpdate(txt) {
-    updateFoundItemsList({ type: 'search', item: txt.target.value.toLowerCase(), initItems: foundItems })
-    updateLostItemsList({ type: 'search', item: txt.target.value.toLowerCase(), initItems: lostItems })
-    updateClaimedItemsList({ type: 'search', item: txt.target.value.toLowerCase(), initItems: claimedItems })
+    setSearchBar(txt.target.value.toLowerCase())
+    updateCards(txt.target.value.toLowerCase())
   }
+
+  //Updates the cards for all methods
+  function updateCards(item) {
+    updateFoundItemsList({ item: item, initItems: foundItems })
+    updateLostItemsList({ item: item, initItems: lostItems })
+    updateClaimedItemsList({ item: item, initItems: claimedItems })
+  }
+
 
   return (
     <div className='container'>
       <h3 className='heading'>Search Found Items</h3>
       <br></br>
       <div className='row'>
-        <div className='divider'><DropdownBtn eventHandle={buildingBtn} title="Building" items={buildingBtnItems} /></div>
-        <div className='divider'><DropdownBtn eventHandle={itemBtn} title="Item Type" items={itemTypeBtnItems} /></div>
+        <div className='divider'><DropdownBtn eventHandle={buildingBtn} title={'Building (' + buildingBtnState.items.find(item => item.search('✔️') !== -1).replace('✔️ ', '') + ')'} items={buildingBtnState.items} /></div>
+        <div className='divider'><DropdownBtn eventHandle={itemBtn} title={'Items (' + itemBtnState.items.find(item => item.search('✔️') !== -1).replace('✔️ ', '') + ')'} items={itemBtnState.items} /></div>
         <div className='divider'>
           <TextField label="Search items" onChange={txtUpdate} />
         </div>
@@ -166,8 +179,8 @@ const SearchFoundItems = () => {
           <div className="cardDivider"><Cards dateDesc="Date Claimed" buttonText="I want to disupte this claim" building={item.building} dateFound={item.dateFound} title={item.title} claimDesc={item.claimDesc} desc={item.desc} img={item.img} /></div>
         ))}
       </div>
-      <FooterSearch/>
-    </div>
+      <FooterSearch />
+    </div >
   );
 }
 

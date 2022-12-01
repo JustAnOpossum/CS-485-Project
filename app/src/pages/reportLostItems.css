@@ -1,0 +1,9 @@
+.main {
+    text-align: center;
+}
+
+.number {
+    font-size: 1.75em;
+    -webkit-text-stroke: 0.15em #891216;
+    font-family: sans;
+}
