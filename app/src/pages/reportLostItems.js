@@ -80,6 +80,8 @@ const ReportLostItems = () => {
       </Modal>
       <div className='container'>
         <h3 className='heading'>Report Lost Items</h3>
+        <h4 className="header">Lost something? Make a report so we can keep an eye out for it.</h4>
+
         <div class="row">
           <form onSubmit={handleSubmit}>
             <div class="container main">
@@ -136,7 +138,7 @@ const ReportLostItems = () => {
                 </div>
               </div>
             </div>
-            <div class="main"><input class="btn btn-success" type="submit" value="Submit" /></div>
+            <div class="main"><input className="button" type="submit" value="Submit" /></div>
           </form>
         </div>
       </div >

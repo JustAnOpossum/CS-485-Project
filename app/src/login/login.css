@@ -1,0 +1,97 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: montserrat, sans-serif;
+}
+
+.inputAndButton{
+    appearance: none;
+    background: none;
+    background-color: #666;
+    border-color: lightgrey;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.App{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../pages/images/nmsuLogin.jpg");
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+.form{
+    display: block;
+    position: relative;
+    outline-color: #8c0b42;
+    outline-width: 12px;
+
+}
+
+.form-inner{
+    position: relative;
+    display: block;
+    background-color: white;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 20px;
+    outline-width: 12px;
+    z-index: 1;
+}
+
+.form-inner-h2{
+    color: #333;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+form .form-inner .form-group{
+    display: block;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.form-inner .form-group label{
+    display: block;
+    color: #555;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: 0.4s;
+}
+
+
+form .form-inner .form-group input{
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+
+
+form .form-inner input[type="submit"] {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    transition: 0.4s;
+    cursor: pointer;
+}
+form .form-inner input[type="submit"]:hover{
+    background-position: 100% 0%;
+    background-color: #009E60;
+}

@@ -136,7 +136,7 @@ const ReportFoundItems = () => {
                 </div>
               </div>
             </div>
-            <div class="main"><input class="btn btn-success" type="submit" value="Submit" /></div>
+            <div class="main"><input className="button" type="submit" value="Submit" /></div>
           </form>
         </div>
       </div >

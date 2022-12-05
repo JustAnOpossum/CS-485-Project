@@ -1,7 +1,8 @@
 import "./Components/layout.module.css";
 import { Routes, Route } from 'react-router-dom';
 import { ReportLostItems, SearchFoundItems, Home, ReportFoundItems } from './pages';
-import { NavbarAdmin, NavbarUser, Footer, LoginForm } from "./Components";
+import { NavbarAdmin, NavbarUser, Footer } from "./Components";
+import {LoginForm} from "./login";
 import React, {useState} from 'react';
 
 
