@@ -6,7 +6,7 @@ import { Home, ReportLostItems, SearchFoundItems } from '../pages';
 import styles from './layout.module.css'
 
 // Creates navbar component (React component)
-const Navbar = () => {
+const NavbarAdmin = () => {
   return (
       <nav className={styles.navbar}>
         <ul className={styles.navLinks}>
@@ -23,6 +23,11 @@ const Navbar = () => {
           <li className={styles.navLinkItem}>
             <CustomLink to='/report-lost-items' className={styles.navLinkText}>
               Report Lost Item
+            </CustomLink>
+          </li>
+          <li className={styles.navLinkItem}>
+            <CustomLink to='/admin-reporting' className={styles.navLinkText}>
+              Admin Reporting
             </CustomLink>
           </li>
         </ul>
@@ -44,4 +49,4 @@ function CustomLink({ to, children, ...props }) {
 }
 
 // Export component
-export default Navbar
+export default NavbarAdmin

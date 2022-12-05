@@ -1,12 +1,11 @@
 import "./styles.css";
-import { Footer } from '../Components';
 import "./reportLostItems.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
 
-const ReportLostItems = () => {
+const ReportFoundItems = () => {
   //State for showing the modal
   const [show, setShow] = useState(false);
   //State for the desc. of the modal
@@ -69,7 +68,7 @@ const ReportLostItems = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Lost Item Submission</Modal.Title>
+          <Modal.Title>Admin Reporting</Modal.Title>
         </Modal.Header>
         <Modal.Body>{modalDesc}</Modal.Body>
         <Modal.Footer>
@@ -79,9 +78,8 @@ const ReportLostItems = () => {
         </Modal.Footer>
       </Modal>
       <div className='container'>
-        <h3 className='heading'>Report Lost Items</h3>
-        <h4 className="header">Lost something? Make a report so we can keep an eye out for it.</h4>
-
+        <h3 className='heading'>Admin Reporting</h3>
+        <h4 className="header">For reporting items turned in to the lost and found</h4>
         <div class="row">
           <form onSubmit={handleSubmit}>
             <div class="container main">
@@ -113,7 +111,7 @@ const ReportLostItems = () => {
                 </div>
                 <div class="col-sm">
                   <label>
-                    <div class="number">4</div><h2 class="postTitle">Last Know Location:</h2>
+                    <div class="number">4</div><h2 class="postTitle">Location Found At:</h2>
                     <br></br>
                     <input type="text" id="location" />
                   </label>
@@ -123,14 +121,14 @@ const ReportLostItems = () => {
                 <div class="row">
                   <div class="col-sm">
                     <label>
-                      <div class="number">5</div><h2 class="postTitle">Aggie ID:</h2>
+                      <div class="number">5</div><h2 class="postTitle">Date Turned In:</h2>
                       <br></br>
                       <input type="text" id="aggieID" />
                     </label>
                   </div>
                   <div class="col-sm">
                     <label>
-                      <div class="number">6</div><h2 class="postTitle">Date Lost:</h2>
+                      <div class="number">6</div><h2 class="postTitle">Where to Claim Item:</h2>
                       <br></br>
                       <input type="text" id="dateLost" />
                     </label>
@@ -144,6 +142,7 @@ const ReportLostItems = () => {
       </div >
     </>
   );
+
 }
 
-export default ReportLostItems;
+export default ReportFoundItems;
