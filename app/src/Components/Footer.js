@@ -14,11 +14,12 @@ const Footer = () => {
 return (
 	<Box style={{
 		"background-color": "#8c0b42",
-		marginLeft: "-4.2%",
 		display: "block",
-		position: "absolute",
+		position: "relative",
 		marginBottom: "-20%",
-		height: "50%"
+		marginLeft: "0",
+		height: "50%",
+		width: "100%"
 	}}>
 	<Container style={{
 
@@ -27,7 +28,8 @@ return (
 		<h1 style={{ color: "white", 
                    textAlign: "center", 
 				   paddingTop: "40px",
-				   paddingBottom: "20px",
+				   paddingBottom: "30px",
+				   marginTop: "-8%",
 				   fontWeight: "bold"
                     }}>
         Need to get in touch?

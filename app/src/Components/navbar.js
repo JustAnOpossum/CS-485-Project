@@ -25,6 +25,11 @@ const Navbar = () => {
               Report Lost Item
             </CustomLink>
           </li>
+          <li className={styles.navLinkItem}>
+            <CustomLink to='/admin-reporting' className={styles.navLinkText}>
+              Admin Reporting
+            </CustomLink>
+          </li>
         </ul>
       </nav>
   );

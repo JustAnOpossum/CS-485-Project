@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button'
 
-const ReportLostItems = () => {
+const ReportFoundItems = () => {
   //State for showing the modal
   const [show, setShow] = useState(false);
   //State for the desc. of the modal
@@ -69,7 +69,7 @@ const ReportLostItems = () => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Lost Item Submission</Modal.Title>
+          <Modal.Title>Admin Reporting</Modal.Title>
         </Modal.Header>
         <Modal.Body>{modalDesc}</Modal.Body>
         <Modal.Footer>
@@ -79,7 +79,8 @@ const ReportLostItems = () => {
         </Modal.Footer>
       </Modal>
       <div className='container'>
-        <h3 className='heading'>Report Lost Items</h3>
+        <h3 className='heading'>Admin Reporting</h3>
+        <h4 className="header">For reporting items turned in to the lost and found</h4>
         <div class="row">
           <form onSubmit={handleSubmit}>
             <div class="container main">
@@ -142,6 +143,7 @@ const ReportLostItems = () => {
       </div >
     </>
   );
+
 }
 
-export default ReportLostItems;
+export default ReportFoundItems;

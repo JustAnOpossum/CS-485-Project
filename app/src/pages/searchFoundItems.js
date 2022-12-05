@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '../Components/dropdown.css'
 import { useReducer, useState } from 'react';
 import TextField from "@mui/material/TextField";
-import { FooterSearch } from "../Components";
 
 
 //Array of items for the building button
@@ -179,7 +178,6 @@ const SearchFoundItems = () => {
           <div className="cardDivider"><Cards dateDesc="Date Claimed" buttonText="I want to disupte this claim" building={item.building} dateFound={item.dateFound} title={item.title} claimDesc={item.claimDesc} desc={item.desc} img={item.img} /></div>
         ))}
       </div>
-      <FooterSearch />
     </div >
   );
 }

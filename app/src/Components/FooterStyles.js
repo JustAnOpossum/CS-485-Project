@@ -3,14 +3,13 @@ import styled from 'styled-components';
 export const Box = styled.div`
 padding: 80px 60px;
 background: #8c0b42;
-position: absolute;
-bottom: -50%;
+position: fixed;
+bottom: -200%;
+margin-left: -10%;
 width: 100%;
 
 
-@media (max-width: 1000px) {
-	padding: 70px 30px;
-}
+
 `;
 
 export const Container = styled.div`
@@ -20,13 +19,12 @@ export const Container = styled.div`
 	max-width: 1000px;
 	height: 40%;
 	margin: 0 auto;
-	/* background: red; */
 `
 
 export const Column = styled.div`
 display: flex;
 flex-direction: column;
-text-align: left;
+text-align: center;
 margin-left: 60px;
 `;
 
@@ -49,7 +47,7 @@ font-size: 18px;
 text-decoration: none;
 
 &:hover {
-	color: green;
+	color: grey;
 	transition: 200ms ease-in;
 }
 `;

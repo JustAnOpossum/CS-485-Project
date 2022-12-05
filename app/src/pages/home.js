@@ -7,8 +7,10 @@ const Home = () => {
   return (
   <>  
     <header>
+      <div className='headerDiv'>
       <img src={banner} className='banner'/>
-      <div className='divs'><h1 className='homeHeading'>Welcome to NMSU Lost and Found</h1></div>
+      <h1 className='homeHeading'>Welcome to NMSU Lost and Found</h1>
+      </div>
     </header>
     <body>
     <div className='divs2'><h2 className='homeHeading2'>What is this site about?</h2></div>
@@ -17,7 +19,6 @@ const Home = () => {
       <p> If you've lost something and think we may be holding it at one of our lost and found locations, navigate to the "Search Found Items" tab to search through the available items. <br/>If you would like to file a report for an item that you lost so that we may keep an eye out for it, navigate to the "Report Lost Items" tab and fill out the form with information regarding this item.</p>
       </div>
     </body>
-    <Footer/>
     </>  
   );
 }
