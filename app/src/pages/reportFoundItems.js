@@ -1,5 +1,4 @@
 import "./styles.css";
-import { Footer } from '../Components';
 import "./reportLostItems.css"
 import 'bootstrap/dist/css/bootstrap.css'
 import Modal from 'react-bootstrap/Modal';
@@ -112,7 +111,7 @@ const ReportFoundItems = () => {
                 </div>
                 <div class="col-sm">
                   <label>
-                    <div class="number">4</div><h2 class="postTitle">Last Know Location:</h2>
+                    <div class="number">4</div><h2 class="postTitle">Location Found At:</h2>
                     <br></br>
                     <input type="text" id="location" />
                   </label>
@@ -122,14 +121,14 @@ const ReportFoundItems = () => {
                 <div class="row">
                   <div class="col-sm">
                     <label>
-                      <div class="number">5</div><h2 class="postTitle">Aggie ID:</h2>
+                      <div class="number">5</div><h2 class="postTitle">Date Turned In:</h2>
                       <br></br>
                       <input type="text" id="aggieID" />
                     </label>
                   </div>
                   <div class="col-sm">
                     <label>
-                      <div class="number">6</div><h2 class="postTitle">Date Lost:</h2>
+                      <div class="number">6</div><h2 class="postTitle">Where to Claim Item:</h2>
                       <br></br>
                       <input type="text" id="dateLost" />
                     </label>

@@ -6,7 +6,7 @@ import { Home, ReportLostItems, SearchFoundItems } from '../pages';
 import styles from './layout.module.css'
 
 // Creates navbar component (React component)
-const Navbar = () => {
+const NavbarAdmin = () => {
   return (
       <nav className={styles.navbar}>
         <ul className={styles.navLinks}>
@@ -49,4 +49,4 @@ function CustomLink({ to, children, ...props }) {
 }
 
 // Export component
-export default Navbar
+export default NavbarAdmin

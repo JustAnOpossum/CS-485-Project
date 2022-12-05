@@ -1,7 +1,6 @@
 import './styles.css';
 import banner from './images/banner5.jpg';
 import lostandfound from './images/lost-and-found-drawer.jpg'
-import { Footer } from '../Components';
 
 const Home = () => {
   return (
